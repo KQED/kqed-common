@@ -1,7 +1,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const path = require('path')
-const srcPath = (...filePath) => path.resoluve('src', ...filePath)
+const srcPath = (...filePath) => path.resolve('src', ...filePath)
 
 module.exports = {
   entry: './lib/index.js',
@@ -11,10 +11,10 @@ module.exports = {
     library: 'kqed-common',
     libraryTarget: 'umd',
     globalObject: 'this',
-    umdNamedDefine: 'true',
+    umdNamedDefine: true,
     path: path.resolve(__dirname, "dist")
   },
-  target: node,
+  target: 'node',
   module: {
     rules: [
       {
