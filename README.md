@@ -3,6 +3,7 @@
 ## Introduction
 Hey Hi Hello :wave:, welcome to KQED's Frontend Component Library. Here you will find our Frontend components that are used throughout our development ecosystem. These are core components that are bundled via webpack that can be installed through `node package manager`. v1 is our node package and v2 will have our FE components hosted via StorybookJs :fist: keep tuned for future developments. 
 
+---
 ### Documentation
 **How To Bundle**
 
@@ -14,11 +15,15 @@ Webpack will be looking at this folder to see what files it will bundle for the 
 
 On the output side of things, we are pointing to the `./bundle.js` located in the root dist folder. 
 
+---
+
 **Folder Structure**
 
 Our `lib` folder is where our component-library lives. Please drop your FE component there and make sure it is encapsulated in semantic parent component folder inside of `lib/component-library`
 
 Next, make sure to export/import said component and then run `yarn run build` which should output a success message. 
+
+---
 
 **Consuming NPM Package**
 
@@ -30,6 +35,8 @@ This command is going to be RELATIVE to where the KQED-common file lives so for 
 `yarn add ./kqed-common` however if it lives in a parent folder two levels above then the command will be: `yarn add ../../kqed-commmon`
 
 The way this package is being consumed is where this folder is currently living so make sure you know it's relative path to where you will consuming this package. 
+
+---
 
 **Importing the FE Component**
 
