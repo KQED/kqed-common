@@ -1,0 +1,9 @@
+// @use 'styles/colors' as c;
+// @use 'styles/buttons';
+// global styles above are commented out (need to import global stylesheet variables. 
+
+.buttonLinkIcon {
+  color: blue;
+  margin-left: 6px;
+  vertical-align: text-top;
+}
