@@ -21,7 +21,7 @@ On the output side of things, we are pointing to the `./bundle.js` located in th
 
 Our `lib` folder is where our component-library lives. Please drop your FE component there and make sure it is encapsulated in semantic parent component folder inside of `lib/component-library`
 
-Next, make sure to export/import said component and then run `yarn run build` which should output a success message. 
+Next run `yarn run build` which should output a success message. 
 
 ---
 
@@ -30,6 +30,8 @@ Next, make sure to export/import said component and then run `yarn run build` wh
 Once you have completed bundling, open the your terminal on the application that will be consuming the NPM package (KQED-common). 
 
 NOTE: If you are adding KQED-common for the first time, then disregard this message BUT if it is not: you need to delete your `yarn.lock` so it can pull in the most recent changes.
+
+SECOND NOTE: It is fairly common for our FE components to have imported components nested inside of it's parent component OR global scss variables declared in the component's stylesheet. If these components or global variables are not imported alongside the parent component, know that this will cause errors. Make sure that all children components and stylesheets + their global variables are declared or included in the bundle for the bundled component to work. 
 
 This command is going to be RELATIVE to where the KQED-common file lives so for example: if it lives in the same folder as the repo that is consuming this package this commands will work: 
 `yarn add ./kqed-common` however if it lives in a parent folder two levels above then the command will be: `yarn add ../../kqed-commmon`
