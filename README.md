@@ -9,7 +9,7 @@ Hey Hi Hello :wave:, welcome to KQED's Frontend Component Library. Here you will
 
 First step is taking a gander at the `webpack.config.js` and you will see our entry point is pointed to `./lib/index.js`.
 
-This is were our components will be exported, follow the pattern you see there to import/export your component. 
+This is the entry point for webpack and it will look at the `component-library` folder. This `index.js` file is left empty but webpack uses this as an entry point. 
 
 Webpack will be looking at this folder to see what files it will bundle for the node package. 
 
