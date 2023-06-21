@@ -58,49 +58,6 @@ const config = {
         ]
       },
       {
-        test: /\.css/,
-        include: /node_modules\/(rc-slider|react-html5video|tiny-slider\iframe-lightbox)/,
-        use: ['style-loader', 'css-loader']
-      },
-      {
-        test: /\.(svg)$/,
-        loader: 'url-loader',
-        options: {
-          name: '[name].[ext]'
-        }
-      },
-      {
-        test: /\.(png|jpg|jpeg|gif)$/,
-        loader: 'url-loader',
-        options: {
-          limit: 8192
-        }
-      },
-      {
-        test: /\.mp4$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          mimetype: 'video/mp4'
-        }
-      },
-      {
-        test: /\.mp3$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          mimetype: 'audio/mpeg'
-        }
-      },
-      {
-        test: /\.vtt$/,
-        loader: 'file-loader',
-        options: {
-          limit: 10000,
-          mimetype: 'text/vtt'
-        }
-      },
-      {
         test: /\.js$/,
         enforce: 'pre',
         use: ['source-map-loader']
