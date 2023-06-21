@@ -1,5 +1,5 @@
 import React from 'react'
-import FaIcon from 'components/FaIcon'
+import FaIcon from 'lib/FaIcon'
 
 export default {
   title: 'Components/FaIcon/Font Awesome Icons/Brands',
