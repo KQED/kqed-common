@@ -1,0 +1,37 @@
+/* Typography */
+$serif-font:          'Georgia', 'Time New Roman', serif;
+$sans-serif-font:     -apple-system, BlinkMacSystemFont, 'Roboto', Arial, 'Helvetica Neue', 'Lucida Grandel', sans-serif;
+$obvi-wide-bold:      'Obvi Wide Bold';
+$body-text-font:      $sans-serif-font;
+
+$font-size-base:      1rem;
+$line-height-base:    1.5;
+
+$h1-font-size:        2.25rem; // 36px
+$h2-font-size:        1.75rem; // 28px
+$h3-font-size:        1.5rem; // 24px
+$h4-font-size:        1.25rem; // 20px
+$h5-font-size:        1rem;
+$h6-font-size:        0.75rem; // 12px
+$heading-line-height: 1.2;
+$headings-font-weight: 600;
+
+$h1-font-size-mobile: 1.75rem; // 28px
+$h2-font-size-mobile: 1.5rem; // 24px
+$h3-font-size-mobile: 1.25rem; // 20px
+$h4-font-size-mobile: 1rem; // 16px
+$h5-font-size-mobile: 0.874rem; // 14px
+$h6-font-size-mobile: 0.75rem; // 12px
+
+$p-margin-bottom:     1.5rem;
+
+$link-color:          $color-secondary;
+$link-hover-color:    darken($link-color, 10%);
+$link-color-red: $color-hot-red-link;
+$link-hover-color-red:    darken($link-color-red, 10%);
+
+$font-size-card-title-watch: 22px;
+$font-weight-card-title-watch: 800;
+
+$font-size-card-description-watch: 16px;
+$font-weight-card-description-watch: 600;

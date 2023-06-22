@@ -1,0 +1,820 @@
+@import 'mixins/breakpoints';
+@import 'variables/colors'; 
+
+// Width of main container next to sidebar
+@mixin mainContainer {
+  @include media-breakpoint-up(md) {
+    // @include span(8);
+  }
+}
+
+@import 'mixins/palette';
+
+@mixin grid($n) {
+  @include container;
+
+  margin-right: -$grid-margin;
+  margin-left: -$grid-margin;
+
+  > * {
+    padding-right: $grid-margin;
+    padding-left: $grid-margin;
+    @include span(1 of $n inside no-gutter);
+
+    &:nth-child(#{$n}n + #{$n}) {
+      @include last;
+    }
+  }
+}
+
+@mixin edges($top: 0, $right: 0, $bottom: 0, $left: 0) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin overlay() {
+  &::before {
+    position: absolute;
+    content: '';
+    @include edges();
+
+    @content;
+  }
+}
+
+// Screen reader text for accessibility, not visible on screen
+@mixin sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+// Styles for links in header with icons and labels
+@mixin headerTabItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 4px;
+  transition: color $transition-speed, background-color $transition-speed;
+  font-size: 1rem;
+  line-height: inherit;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  @include media-breakpoint-down(sm) {
+    font-size: 0.875rem;
+  }
+
+  :global(.icon) {
+    width: auto;
+    max-width: 100%;
+    height: 32px;
+    margin-bottom: 4px;
+
+    path,
+    g {
+      transition: fill $transition-speed, stroke $transition-speed;
+    }
+  }
+
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+    justify-content: center;
+    font-size: 9px;
+
+    :global(.icon) {
+      width: 12px;
+      height: auto;
+      margin: 0 0 0 8px;
+
+      path,
+      g {
+        fill: $color-primary;
+      }
+    }
+
+    &,
+    &:focus,
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  @include media-breakpoint-up(lg) {
+    font-size: 0.75rem;
+
+    :global(.icon) {
+      width: 12px;
+      margin: 0 0 0 8px;
+    }
+  }
+  @include media-breakpoint-up(xl) {
+    padding: 8px;
+  }
+}
+
+// Set font styles for h1
+@mixin h1() {
+  font-size: $h1-font-size;
+  font-weight: $headings-font-weight;
+  line-height: $heading-line-height;
+
+  @include media-breakpoint-down(sm) {
+    font-size: $h1-font-size-mobile;
+  }
+}
+
+// Set font styles for h2
+@mixin h2() {
+  font-size: $h2-font-size;
+  font-weight: $headings-font-weight;
+  line-height: $heading-line-height;
+
+  @include media-breakpoint-down(sm) {
+    font-size: $h2-font-size-mobile;
+  }
+}
+
+// Set font styles for h3
+@mixin h3() {
+  font-size: $h3-font-size;
+  font-weight: $headings-font-weight;
+  line-height: $heading-line-height;
+
+  @include media-breakpoint-down(sm) {
+    font-size: $h3-font-size-mobile;
+  }
+}
+
+// Set font styles for h4
+@mixin h4() {
+  font-size: $h4-font-size;
+  font-weight: $headings-font-weight;
+  line-height: $heading-line-height;
+
+  @include media-breakpoint-down(sm) {
+    font-size: $h4-font-size-mobile;
+  }
+}
+
+// Set font styles for h5
+@mixin h5() {
+  font-size: $h5-font-size;
+  font-weight: $headings-font-weight;
+  line-height: $heading-line-height;
+
+  @include media-breakpoint-down(sm) {
+    font-size: $h5-font-size-mobile;
+  }
+}
+
+// Set font styles for h6
+@mixin h6() {
+  font-size: $h6-font-size;
+  font-weight: $headings-font-weight;
+  line-height: $heading-line-height;
+
+  @include media-breakpoint-down(sm) {
+    font-size: $h6-font-size-mobile;
+  }
+}
+
+// minisite template mixins
+//
+
+@mixin minisite-h1() {
+  @include tiempos-headline;
+
+  color: $color-ousd-green;
+  font-size: 66px;
+  line-height: 69px;
+  text-align: center;
+
+  @include media-breakpoint-down(md) {
+    font-size: 36px;
+    line-height: 39px;
+  }
+}
+
+@mixin minisite-h2($bar: true, $color: 'black') {
+  @include tiempos-headline;
+
+  font-size: 35px;
+  letter-spacing: 0.8px;
+  line-height: calc(45 / 35);
+  text-align: center;
+
+  @if $color == 'white' {
+    color: white;
+  } @else if $color == 'highlight' {
+    @include palette((
+      color highlight
+    ));
+  } @else {
+    color: black;
+  }
+
+  @if $bar {
+    &::before {
+      display: block;
+      width: 50%;
+      height: 37px;
+      margin-bottom: 2px;
+      border-right: 1px solid currentColor;
+      content: ' ';
+
+      @include media-breakpoint-down(md) {
+        height: 29px;
+        margin-bottom: 1px;
+      }
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 28px;
+    letter-spacing: 0.6px;
+    line-height: calc(36 / 28);
+  }
+}
+
+@mixin events-h2() {
+  display: inline-block;
+  color: $color-primary;
+  font-family: $sans-serif-font;
+  font-size: 29px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  line-height: 40px;
+  text-align: center;
+  text-transform: uppercase;
+
+  &::before {
+    display: block;
+    margin-bottom: 2px;
+    border-top: 7px solid $color-gray-text;
+    content: ' ';
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 25px;
+    line-height: 28px;
+  }
+}
+
+@mixin minisite-link-base() {
+  padding-bottom: 2px;
+  border-bottom: 1px solid $color-light-gray;
+  font-family: $sans-serif-font;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+@mixin minisite-link-state-all() {
+  color: #000;
+  text-decoration: none;
+}
+
+@mixin minisite-link-state-hover() {
+  border-color: black;
+  cursor: pointer;
+}
+
+@mixin minisite-link-state-active($color: $color-hot-red) {
+  border-color: $color;
+}
+
+@mixin minisite-link($color: $color-hot-red) {
+  @include minisite-link-base();
+
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    @include minisite-link-state-all();
+  }
+
+  &:hover,
+  &:focus {
+    @include minisite-link-state-hover();
+  }
+
+  &:active {
+    @include minisite-link-state-active($color);
+  }
+}
+
+@mixin minisite-link-podcast($color: $color-hot-red) {
+  @include minisite-link($color);
+
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+
+  & {
+    color: $color-medium-gray;
+  }
+}
+
+//
+// end minisite
+
+@mixin campaign21-header() {
+  display: inline-block;
+  padding: 5px 0;
+  border-top: 1px solid $color-campaign21-gray;
+  border-bottom: 1px solid $color-campaign21-gray;
+  color: $color-campaign21-gray;
+  font-family: $sans-serif-font;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.7px;
+  line-height: calc(17 / 13);
+  text-transform: uppercase;
+
+  @include media-breakpoint-up(lg) {
+    padding: 12px 0;
+    font-size: 16px;
+    line-height: 1;
+  }
+}
+
+@mixin sidebarHeader() {
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid $color-gray;
+  font-size: 0.875rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+// bold underline to use for section headings
+@mixin headingUnderline() {
+  @include h6;
+
+  margin-bottom: 1rem;
+  padding: 0.25rem 0;
+  border-bottom: 1px solid $color-primary;
+  color: $color-primary;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+@mixin buttonBlue() {
+  display: inline-block;
+  padding: 0.5rem 2rem;
+  border-radius: 6px;
+  background-color: $color-primary;
+  color: #fff;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+// Set animation type
+@mixin keyframes($animationName) {
+  @keyframes #{$animationName} {
+    @content;
+  }
+}
+
+@mixin clippedTitle(
+  $font-size: 1.25rem,
+  $line-height: 1.2,
+  $lines-to-show: 3,
+  $ct-bg: transparent
+) {
+  display: block;
+  position: relative;
+
+  @if ($font-size >= 2rem) {
+    max-height: ($font-size * $line-height * $lines-to-show) + 0.3;
+  }
+
+  @else {
+    max-height: $font-size * $line-height * $lines-to-show;
+  }
+
+  font-size: $font-size;
+  line-height: $line-height;
+  overflow: hidden;
+
+  &::after {
+    display: block;
+    position: absolute;
+    right: -5px;
+    bottom: 0;
+    width: 25px;
+    height: calc(#{$font-size} + 0.25rem);
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 1) 65%
+    );
+    text-align: right;
+    content: '';
+  }
+}
+
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+
+  &::before {
+    display: block;
+    width: 100%;
+    padding-top: calc($height / $width) * 100%;
+    content: ' ';
+  }
+
+  > .content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+@mixin figcaption() {
+  color: $color-gray;
+  font-family: $serif-font;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+@mixin wp-alignleft() {
+  @include media-breakpoint-up(md) {
+    margin-right: 3%;
+    float: left;
+  }
+}
+
+@mixin wp-alignright() {
+  @include media-breakpoint-up(md) {
+    margin-left: 3%;
+    float: right;
+  }
+}
+
+@mixin wp-aligncenter() {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@mixin loading() {
+  @include keyframes(loaderSpin) {
+    from {
+      transform: rotate(0deg);
+    }
+
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  :global(.icon-loader) {
+    width: 100px;
+    height: 100px;
+    animation: loaderSpin infinite 2s linear;
+
+    path,
+    g {
+      fill: $color-primary;
+    }
+  }
+}
+
+@mixin fadeIn() {
+  /* call our keyframe named fadeIn, use animattion ease-in and repeat it only 1 time */
+  -webkit-animation: fadeIn ease-in 1;
+  -moz-animation: fadeIn ease-in 1;
+  animation: fadeIn ease-in 1;
+
+  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1) */
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.5s;
+  -moz-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+
+  @include keyframes(fadeIn) {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin fadeOut() {
+  /* call our keyframe named fadeOut, use animattion ease-in and repeat it only 1 time */
+  -webkit-animation: fadeOut ease-in 1;
+  -moz-animation: fadeOut ease-in 1;
+  animation: fadeOut ease-in 1;
+
+  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 0) */
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.5s;
+  -moz-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+
+  @include keyframes(fadeOut) {
+    from {
+      opacity: 1;
+    }
+
+    to {
+      opacity: 0;
+    }
+  }
+}
+
+@mixin fadeInDown() {
+  /* call our keyframe named fadeInDown, use animattion ease-in and repeat it only 1 time */
+  -webkit-animation: fadeInDown ease-in 1;
+  -moz-animation: fadeInDown ease-in 1;
+  animation: fadeInDown ease-in 1;
+
+  /* this makes sure that after animation is done we remain at the last keyframe value (opacity: 1) */
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.5s;
+  -moz-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+
+  @include keyframes(fadeInDown) {
+    from {
+      transform: translate3d(0, -0.875rem, 0);
+      opacity: 0;
+    }
+
+    to {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin moveDown() {
+  -webkit-animation: moveDown ease-in 1;
+  -moz-animation: moveDown ease-in 1;
+  animation: moveDown ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.5s;
+  -moz-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+
+  @include keyframes(moveDown) {
+    from {
+      transform: translate3d(0, -40px, 0);
+      opacity: 0;
+    }
+
+    85% {
+      opacity: 0;
+    }
+
+    to {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin moveUp() {
+  -webkit-animation: moveUp ease-out 1;
+  -moz-animation: moveUp ease-out 1;
+  animation: moveUp ease-out 1;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.4s;
+  -moz-animation-duration: 0.4s;
+  animation-duration: 0.4s;
+
+  @include keyframes(moveUp) {
+    from {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+
+    15% {
+      opacity: 0;
+    }
+
+    to {
+      transform: translate3d(0, -100%, 0);
+      opacity: 0;
+    }
+  }
+}
+
+@mixin slideInLeft() {
+  -webkit-animation: slideInLeft ease-out 1;
+  -moz-animation: slideInLeft ease-out 1;
+  animation: slideInLeft ease-out 1;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.25s;
+  -moz-animation-duration: 0.25s;
+  animation-duration: 0.25s;
+
+  @include keyframes(slideInLeft) {
+    from {
+      transform: translate3d(-100%, 0, 0);
+      visibility: visible;
+    }
+
+    to {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
+
+@mixin slideOutLeft() {
+  -webkit-animation: slideOutLeft ease-in 1;
+  -moz-animation: slideOutLeft ease-in 1;
+  animation: slideOutLeft ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.25s;
+  -moz-animation-duration: 0.25s;
+  animation-duration: 0.25s;
+
+  @include keyframes(slideOutLeft) {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+
+    to {
+      transform: translate3d(-100%, 0, 0);
+      visibility: hidden;
+    }
+  }
+}
+
+@mixin slideInRight() {
+  -webkit-animation: slideInRight ease-out 1;
+  -moz-animation: slideInRight ease-out 1;
+  animation: slideInRight ease-out 1;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.25s;
+  -moz-animation-duration: 0.25s;
+  animation-duration: 0.25s;
+
+  @include keyframes(slideInRight) {
+    from {
+      transform: translate3d(100%, 0, 0);
+    }
+
+    to {
+      transform: translate3d(0, 0, 0);
+      visibility: visible;
+    }
+  }
+}
+
+@mixin slideOutRight() {
+  -webkit-animation: slideOutRight ease-in 1;
+  -moz-animation: slideOutRight ease-in 1;
+  animation: slideOutRight ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.25s;
+  -moz-animation-duration: 0.25s;
+  animation-duration: 0.25s;
+
+  @include keyframes(slideOutRight) {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+
+    to {
+      transform: translate3d(100%, 0, 0);
+      visibility: hidden;
+    }
+  }
+}
+
+@mixin slideUp() {
+  -webkit-animation: slideUp ease-in 1;
+  -moz-animation: slideUp ease-in 1;
+  animation: slideUp ease-in 1;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.2s;
+  -moz-animation-duration: 0.2s;
+  animation-duration: 0.2s;
+
+  @include keyframes(slideUp) {
+    from {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+
+    25% {
+      opacity: 1;
+    }
+
+    to {
+      transform: translate3d(0, -100%, 0);
+      opacity: 0;
+    }
+  }
+}
+
+@mixin slideDown() {
+  -webkit-animation: slideDown ease-out 1;
+  -moz-animation: slideDown ease-out 1;
+  animation: slideDown ease-out 1;
+  -webkit-animation-fill-mode: forwards;
+  -moz-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-duration: 0.25s;
+  -moz-animation-duration: 0.25s;
+  animation-duration: 0.25s;
+
+  @include keyframes(slideDown) {
+    from {
+      transform: translate3d(0, -100%, 0);
+      opacity: 0;
+    }
+
+    60% {
+      opacity: 0;
+    }
+
+    to {
+      transform: translate3d(0, 0, 0);
+      opacity: 1;
+    }
+  }
+}
+
+@mixin container_global() {
+  @include container;
+
+  padding-right: $container-padding-mobile;
+  padding-left: $container-padding-mobile;
+
+  @include media-breakpoint-up(md) {
+    padding-right: $container-padding-tablet;
+    padding-left: $container-padding-tablet;
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-right: $container-padding;
+    padding-left: $container-padding;
+  }
+}
+
+@mixin fssTitle {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+@mixin fssDescription {
+  color: $color-medium-gray;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+@mixin fssEpisodeTitle {
+  color: #939393;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+// palette mixin is above, as it is used in mixnis in this file
+
+@import 'mixins/headers';
+@import 'mixins/text';
+@import 'mixins/button-see-more';
+@import 'mixins/button-round';
+@import 'mixins/button-small';
+@import 'mixins/dropdown';
+@import 'mixins/ender-line';
+@import 'mixins/gradient-editorial';

@@ -1,0 +1,101 @@
+@mixin serif-card-intro-1 {
+  color: $color-dark-gray;
+  font-family: $serif-font;
+  font-size: 15px;
+  line-height: calc(23 / 15);
+}
+
+@mixin sans-body-overview {
+  color: #000;
+  font-family: $sans-serif-font;
+  font-size: 16px;
+  line-height: calc(24 / 16);
+
+  @include media-breakpoint-up(md) {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: calc(29 / 18);
+  }
+}
+
+@mixin serif-body-paragraph-1 {
+  font-family: $serif-font;
+  font-size: 17px;
+  line-height: calc(26 / 17);
+
+  @include media-breakpoint-up(md) {
+    font-size: 19px;
+    line-height: calc(29 / 19);
+  }
+}
+
+@mixin serif-body-paragraph-1-plus {
+  font-family: $serif-font;
+  font-size: 18px;
+  line-height: calc(29 / 18);
+
+  @include media-breakpoint-up(md) {
+    font-size: 20px;
+    line-height: calc(33 / 20);
+  }
+}
+
+@mixin serif-body-paragraph-2 {
+  font-family: $serif-font;
+  font-size: 15px;
+  line-height: calc(22 / 15);
+
+  @include media-breakpoint-up(md) {
+    font-size: 19px;
+    line-height: calc(29 / 19);
+  }
+}
+
+@mixin serif-body-paragraph {
+  font-family: $serif-font;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: calc(21 / 13);
+
+  @include media-breakpoint-up(md) {
+    font-size: 15px;
+    line-height: calc(24 / 15);
+  }
+}
+
+@mixin sans-body-paragraph {
+  font-family: $sans-serif-font;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: calc(21 / 13);
+
+  @include media-breakpoint-up(md) {
+    font-size: 15px;
+    line-height: calc(24 / 15);
+  }
+}
+
+@mixin company-body-paragraph {
+  color: black;
+  font-family: $sans-serif-font;
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0.16px;
+  line-height: calc(24 / 15);
+
+  @include media-breakpoint-up(md) {
+    font-size: 17px;
+    line-height: calc(28 / 17);
+  }
+}
+
+@mixin text-link-1 {
+  color: $link-color-red;
+  font-weight: 700;
+
+  &:hover,
+  &:focus {
+    color: $link-hover-color-red;
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,17 @@
+/* Global spacing */
+$container-width: 1280px;
+$container-padding: 90px;
+$container-padding-tablet: 52px;
+$container-padding-mobile: 16px;
+$container-padding-top: 8px;
+$container-padding-top-mobile: 24px;
+$sidebar-width: 300px;
+$grid-margin: 12.5px;
+$styled-header-height: 1.375rem;
+
+$susy: (
+  columns: 8,
+  container: $container-width + ($container-padding * 2),
+  gutters: 0.2987,
+  global-box-sizing: border-box
+);

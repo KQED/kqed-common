@@ -1,0 +1,30 @@
+@mixin buttonSmall () {
+  display: inline-flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 14px;
+  border-radius: 16px;
+  background-color: $color-pale-gray;
+  color: $color-dark-gray;
+  font-size: 12px;
+
+  &,
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+  }
+
+  &:focus,
+  &:hover {
+    background-color: $color-bg-gray;
+    color: $color-gray-black;
+  }
+
+  &:active {
+    background-color: $color-light-gray;
+    color: black;
+  }
+}

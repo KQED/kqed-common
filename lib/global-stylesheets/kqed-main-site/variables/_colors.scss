@@ -1,0 +1,146 @@
+//* When adding new colors, please also add the associated variable (see exported colors object below) - KSM-3779 C.Sarkki
+
+// Bay Area Hip-hop Guide
+$color-timeline-card-bg: #2b21fe;
+$color-filter-clear-underline: #9f9f9f;
+$color-timeline-vert: #e4e4e4;
+
+$color-election-purple: #9013fe;
+$color-election-blue: #0078c9;
+$color-election-red: #e30044;
+$color-election-light-red: #ff2062;
+$color-election-bg: #f2f8fc;
+$color-election-darkblue: #021842;
+$color-election-white: #ffffff;
+
+//LiveBlog colors
+$color-pinned-background: #f8f8f8;
+
+$color-black: #000000;
+$color-white: #ffffff;
+$color-series-blue: #0001ed;
+$color-ousd-green: #219135;
+
+$color-pink-banner: #ffe6ed;
+
+$color-giving-blue: #0063b1;
+$color-giving-green: #8cc63c;
+
+$color-gray-black: #404040;
+$color-dark-gray: #636363;
+$color-medium-gray: #767676;
+$color-light-gray: #d5d5d5;
+$color-bg-gray: #eee;
+$color-hover-gray: #807d7d40;
+$color-pale-gray: #f9f9f9;
+
+$color-blue-black: #012842; // Brand Blue
+$color-blue-gray: #d2dade;
+$color-hot-red: #ec0046; // Brand Red
+$color-hot-red-dark: #ae0034;
+$color-bay-orange: #f04e23;
+$color-hot-red-hover: #ff4079;
+$color-hot-red-hover-light: #ff598b;
+$color-hot-red-pressed: #ff7fa5;
+$color-hot-red-link: #d80040; // Link Red
+$color-red-link-underline: #ec809f;
+$color-hot-red-link-hover: #a50031;
+$color-hot-red-link-underline: #e87c9c;
+
+$color-menu-bg-white: #f1f1f1;
+$color-menu-border-bottom: #dfdfdf;
+$color-accordion-bottom: #dbdbdb;
+$color-youthmedia-takeover-bg: #004A7B;
+$color-youthmedia-cards-bg: #EFFFD0;
+// older
+
+$color-primary: #031623;
+$color-secondary: #00aeff;
+$color-tertiary: #13182d;
+$color-pfs-blue: #0592e0;
+$text-color: #04151a;
+$bkgd-block-color: #000;
+
+$color-campaign21-pink: #fc3962;
+$color-gray: #979797;
+$color-gray-dark: #767676;
+$color-gray-darkest: #393939;
+$color-gray-light: #e9e9e9; // inaccurate
+$color-gray-lightest: #f0f0f0;
+$color-campaign21-gray: #6a6a6a;
+$color-campaign21-bg: #f2f2f2;
+$color-mini-light-gray: #dadada;
+$color-gray-text: #b2b2b2;
+$color-link-underline-gray: #939393;
+
+// * Exported colors object with variables to be used in JS files
+:export {
+  // Bay Area Hip-hop Guide
+  color-timeline-card-bg: $color-timeline-card-bg;
+  color-filter-clear-underline: $color-filter-clear-underline;
+  color-timeline-vert: $color-timeline-vert;
+
+  color-election-purple: $color-election-purple;
+  color-election-blue: $color-election-blue;
+  color-election-red: $color-election-red;
+  color-election-light-red: $color-election-light-red;
+  color-election-bg: $color-election-bg;
+  color-election-darkblue: $color-election-darkblue;
+  color-election-white: $color-election-white;
+
+  //LiveBlog colors
+  color-pinned-background: $color-pinned-background;
+
+  color-black: $color-black;
+  color-white: $color-white;
+  color-series-blue: $color-series-blue;
+  color-ousd-green: $color-ousd-green;
+
+  color-pink-banner: $color-pink-banner;
+
+  color-giving-blue: $color-giving-blue;
+  color-giving-green: $color-giving-green;
+
+  color-gray-black: $color-gray-black;
+  color-dark-gray: $color-dark-gray;
+  color-medium-gray: $color-medium-gray;
+  color-light-gray: $color-light-gray;
+  color-bg-gray: $color-bg-gray;
+  color-hover-gray: $color-hover-gray;
+  color-pale-gray: $color-pale-gray;
+
+  color-blue-black: $color-blue-black; // Brand Blue
+  color-blue-gray: $color-blue-gray;
+  color-hot-red: $color-hot-red; // Brand Red
+  color-hot-red-dark: $color-hot-red-dark;
+  color-bay-orange: $color-bay-orange;
+  color-hot-red-hover: $color-hot-red-hover;
+  color-hot-red-hover-light: $color-hot-red-hover-light;
+  color-hot-red-pressed: $color-hot-red-pressed;
+  color-hot-red-link: $color-hot-red-link; // Link Red
+  color-hot-red-link-hover: $color-hot-red-link-hover;
+
+  color-menu-bg-white: $color-menu-bg-white;
+  color-menu-border-bottom: $color-menu-border-bottom;
+  color-accordion-bottom: $color-accordion-bottom;
+  // older
+
+  color-primary: $color-primary;
+  color-secondary: $color-secondary;
+  color-tertiary: $color-tertiary;
+  color-pfs-blue: $color-pfs-blue;
+  text-color: $text-color;
+  bkgd-block-color: $bkgd-block-color;
+
+  color-campaign21-pink: $color-campaign21-pink;
+  color-gray: $color-gray;
+  color-gray-dark: $color-gray-dark;
+  color-gray-darkest: $color-gray-darkest;
+  color-gray-light: $color-gray-light; // inaccurate
+  color-gray-lightest: $color-gray-lightest;
+  color-campaign21-gray: $color-campaign21-gray;
+  color-campaign21-bg: $color-campaign21-bg;
+  color-mini-light-gray: $color-mini-light-gray;
+  color-gray-text: $color-gray-text;
+  color-link-underline-gray: $color-link-underline-gray;
+}
