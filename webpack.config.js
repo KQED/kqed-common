@@ -39,7 +39,7 @@ module.exports = {
               sourceMap: true,
               modules: {
                 localIdentName: '[path]__[name]__[local]',
-                localIdentContext: srcPath()
+                localIdentContext: srcPath('global-stylesheets')
               }
             }
           },
