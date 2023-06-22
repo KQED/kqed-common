@@ -1,7 +1,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const path = require('path')
-const srcPath = (...filePath) => path.resolve('src', ...filePath)
+const srcPath = (...filePath) => path.resolve('lib', ...filePath)
 
 module.exports = {
   entry: './lib/index.js',
@@ -50,7 +50,7 @@ module.exports = {
               sourceMap: true,
               sassOptions: {
                 includePaths: [
-                  srcPath('styles')
+                  srcPath('global-stylesheets')
                 ]
               }
             }

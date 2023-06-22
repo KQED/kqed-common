@@ -50,7 +50,7 @@ const config = {
               sourceMap: true, 
               sassOptions: {
                 includePaths: [
-                  libPath('styles')
+                  libPath('global-stylesheets')
                 ]
               }
             }
@@ -66,6 +66,7 @@ const config = {
     config.resolve = {
       alias: {
         lib: path.resolve(__dirname, '../lib'),
+        globalStyles: path.resolve(__dirname, '../lib/global-stylesheets')
       },
       extensions: ['.*', '.js', '.jsx', '.json']
     }
