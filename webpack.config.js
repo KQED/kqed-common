@@ -39,7 +39,7 @@ module.exports = {
               sourceMap: true,
               modules: {
                 localIdentName: '[path]__[name]__[local]',
-                localIdentContext: srcPath('global-stylesheets')
+                localIdentContext: srcPath('styles')
               }
             }
           },
@@ -50,7 +50,7 @@ module.exports = {
               sourceMap: true,
               sassOptions: {
                 includePaths: [
-                  srcPath('global-stylesheets')
+                  srcPath('styles')
                 ]
               }
             }
@@ -58,43 +58,6 @@ module.exports = {
 
         ]
       },
-      {
-        test: /\.css/,
-        exclude: /node_modules\/(rc-slider|react-html5video|tiny-slider|iframe-lightbox|mapbox-gl)/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader
-          },
-          'style-loader', 
-          'css-loader?modules'
-        ]
-      },
-      {
-        test: /\.css/,
-        include: /node_modules\/(rc-slider|react-html5video|tiny-slider|iframe-lightbox|mapbox-gl)/,
-        use: ['style-loader', 'css-loader']
-      },
-      {
-        test: /\.(svg)$/,
-        loader: 'url-loader',
-        options: {
-          name: '[name].[ext]'
-        }
-      },
-      {
-        test: /\.(woff(2)?|otf|ttf|eot)$/,
-        type: 'asset/resource',
-        generator: {
-          filename: '[name][ext]'
-        }
-      },
-      {
-        test    : /\.(png|jpg|jpeg|gif)$/,
-        loader  : 'url-loader',
-        options : {
-          limit : 8192
-        }
-      }
     ]
   },
   resolve: {
