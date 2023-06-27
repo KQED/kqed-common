@@ -1,9 +1,15 @@
-// @use 'styles/colors' as c;
+@use './colors' as global-colorway;
 // @use 'styles/buttons';
 // global styles above are commented out (need to import global stylesheet variables. 
+@use 'styles' as *;
 
 .buttonLinkIcon {
   color: blue;
   margin-left: 6px;
   vertical-align: text-top;
+}
+
+.test {
+  color: global-colorway.$color-hot-red;
+  border: 1px solid yellowgreen
 }
