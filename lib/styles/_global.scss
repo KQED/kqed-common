@@ -1,5 +1,3 @@
-// These rules should apply to global elements not covered by the other global styles found in this folder
-
 // Generic global setting for the FaIcon component
 :global(.fontAwesome) {
   color: #000000;
@@ -7,8 +5,4 @@
   height: 20px;
   margin-left: 4px;
   margin-right: 4px;
-}
-
-.testing-FontAwesome {
-  border: 1px solid fuchsia;
 }
