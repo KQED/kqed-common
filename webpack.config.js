@@ -63,19 +63,8 @@ module.exports = {
   resolve: {
     symlinks: false,
     alias: {
-      assets: srcPath('assets'),
-      blocks: srcPath('blocks'),
-      components: srcPath('components'),
-      containers: srcPath('containers'),
-      hocs: srcPath('hocs'),
-      layouts: srcPath('layouts'),
-      routes: srcPath('routes'),
-      modules: srcPath('modules'),
-      store: srcPath('store'),
+      lib: srcPath(),
       styles: srcPath('styles'),
-      utils: srcPath('utils'),
-      widgets: srcPath('widgets'),
-      src: srcPath()
     },
     extensions: ['.*', '.js', '.jsx', '.json']
   }
