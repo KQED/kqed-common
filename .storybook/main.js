@@ -66,6 +66,7 @@ const config = {
     config.resolve = {
       alias: {
         lib: path.resolve(__dirname, '../lib'),
+        styles: path.resolve(__dirname, '../lib/styles')
       },
       extensions: ['.*', '.js', '.jsx', '.json']
     }

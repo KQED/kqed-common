@@ -1,7 +1,7 @@
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const path = require('path')
-const srcPath = (...filePath) => path.resolve('src', ...filePath)
+const srcPath = (...filePath) => path.resolve('lib', ...filePath)
 
 module.exports = {
   entry: './lib/index.js',
@@ -39,7 +39,7 @@ module.exports = {
               sourceMap: true,
               modules: {
                 localIdentName: '[path]__[name]__[local]',
-                localIdentContext: srcPath()
+                localIdentContext: srcPath('styles')
               }
             }
           },
@@ -58,61 +58,13 @@ module.exports = {
 
         ]
       },
-      {
-        test: /\.css/,
-        exclude: /node_modules\/(rc-slider|react-html5video|tiny-slider|iframe-lightbox|mapbox-gl)/,
-        use: [
-          {
-            loader: MiniCssExtractPlugin.loader
-          },
-          'style-loader', 
-          'css-loader?modules'
-        ]
-      },
-      {
-        test: /\.css/,
-        include: /node_modules\/(rc-slider|react-html5video|tiny-slider|iframe-lightbox|mapbox-gl)/,
-        use: ['style-loader', 'css-loader']
-      },
-      {
-        test: /\.(svg)$/,
-        loader: 'url-loader',
-        options: {
-          name: '[name].[ext]'
-        }
-      },
-      {
-        test: /\.(woff(2)?|otf|ttf|eot)$/,
-        type: 'asset/resource',
-        generator: {
-          filename: '[name][ext]'
-        }
-      },
-      {
-        test    : /\.(png|jpg|jpeg|gif)$/,
-        loader  : 'url-loader',
-        options : {
-          limit : 8192
-        }
-      }
     ]
   },
   resolve: {
     symlinks: false,
     alias: {
-      assets: srcPath('assets'),
-      blocks: srcPath('blocks'),
-      components: srcPath('components'),
-      containers: srcPath('containers'),
-      hocs: srcPath('hocs'),
-      layouts: srcPath('layouts'),
-      routes: srcPath('routes'),
-      modules: srcPath('modules'),
-      store: srcPath('store'),
+      lib: srcPath(),
       styles: srcPath('styles'),
-      utils: srcPath('utils'),
-      widgets: srcPath('widgets'),
-      src: srcPath()
     },
     extensions: ['.*', '.js', '.jsx', '.json']
   }

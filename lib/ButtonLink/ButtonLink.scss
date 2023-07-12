@@ -1,9 +1,7 @@
-// @use 'styles/colors' as c;
-// @use 'styles/buttons';
-// global styles above are commented out (need to import global stylesheet variables. 
+@use 'styles' as *;
 
 .buttonLinkIcon {
-  color: blue;
+  color: $color-ymc-indigo;
   margin-left: 6px;
   vertical-align: text-top;
 }
