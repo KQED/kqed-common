@@ -1,0 +1,72 @@
+@use 'styles' as *;
+
+.container {
+  position: relative;
+  z-index: 1000;
+}
+
+.activateBtn {
+  display: flex;
+  color: $color-hot-red;
+  border: 1px solid $color-hot-red;
+  font-family: $sans-serif-font;
+  font-weight: 800;
+  padding: 14px 15px;
+  cursor: pointer;
+  min-width: 130px;
+  background: $color-white;
+
+  svg,
+  span {
+    color: $color-hot-red;
+    vertical-align: middle;
+    cursor: pointer;
+  }
+
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    color: $color-hot-red-hover;
+    background: rgba(255,0,76,.03);
+    cursor: pointer;
+    svg,
+    span {
+      color: $color-hot-red-hover;
+    }
+  }
+}
+
+.menu {
+  display: none;
+  list-style-type: none;
+  position: absolute;
+  border: 1px solid $color-hot-red;
+  background: $color-white;
+  padding: 5px;
+  margin-top: 10px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  z-index: 10;
+  min-width: 130px;
+
+  li {
+    a, button {
+      font-family: $sans-serif-font;
+      font-weight: 400;
+      display: block;
+      color: $color-black;
+      text-decoration: none;
+      padding: 10px;
+      width: 100%;
+      cursor: pointer;
+
+      &:hover,
+      &:focus,
+      &:focus-visible {
+        background: $color-light-gray;
+        border: 0px;
+        outline: 0px;
+      }
+    }
+  }
+}
+
